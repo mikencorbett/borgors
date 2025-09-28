@@ -1,9 +1,12 @@
 import { Component, inject } from '@angular/core';
 import {Resources} from './services/resources';
+import {Generator} from './components/generator/generator';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [
+    Generator
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
