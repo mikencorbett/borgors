@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Generator } from './generator';
+import { AutoGenerator } from './auto-generator';
 
-describe('Generator', () => {
-  let component: Generator;
-  let fixture: ComponentFixture<Generator>;
+describe('AutoGenerator', () => {
+  let component: AutoGenerator;
+  let fixture: ComponentFixture<AutoGenerator>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Generator]
+      imports: [AutoGenerator]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Generator);
+    fixture = TestBed.createComponent(AutoGenerator);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import {Resources} from './services/resources';
-import {Generator} from './components/generator/generator';
+import {AutoGenerator} from './components/auto-generator/auto-generator';
 
 @Component({
   selector: 'app-root',
   imports: [
-    Generator
+    AutoGenerator
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
