@@ -1,14 +1,19 @@
 import { Injectable, signal } from '@angular/core';
+import { defaultInventory } from './default-values';
+import { ResourceType } from './resource/resource-type';
 
 @Injectable({ providedIn: 'root' })
 export class Resources {
-  private readonly _borgors = signal(0);
+  private readonly _inventory = signal(defaultInventory);
 
-  gainBorgor(amount: number) {
-    this._borgors.update(c => c + amount);
+  gainResources(type: ResourceType, amount: number): void {
+    this._inventory.update(cv => ({
+      [type]: amount,
+      ...cv
+    }))
   }
 
-  get borgors() {
-    return this._borgors.asReadonly();
+  getResourceQuantity(type: ResourceType) {
+    return this._inventory()[type];
   }
 }

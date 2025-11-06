@@ -1,10 +1,8 @@
 <div class="container">
   <h1>borgors</h1>
-  <h2>{{ resources.borgors() }}</h2>
-  <button class="button-primary" (click)="makeBorgor()">make borgor</button>
-  <app-generator
-    [name]="'burger stand'"
-    [initialCost]="1"
-    [multiplier]="1.15"
-    [generateInterval]="1000"/>
+<!--  <h2>{{ resources.borgors() }}</h2>-->
+  @for (resource of resourceList; track resource.id) {
+    <app-base-generator
+      [name]="resource.id"/>
+  }
 </div>

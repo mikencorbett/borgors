@@ -11,21 +11,21 @@ import { BaseGenerator } from '../base-generator/base-generator';
 })
 export class AutoGenerator extends BaseGenerator {
   generateInterval = input.required<number>();
+  multiplier = input.required<number>();
   //TODO: These are probably inputs inside a component.
   private readonly _owned = signal<number>(0);
   private readonly _autoCollectEnabled = signal<boolean>(false);
-  private readonly resources = inject(Resources);
 
   enableAutoCollect(): void {
-    if (this._autoCollectEnabled()) {
-      return;
-    }
-    this._autoCollectEnabled.set(true);
-    const generator = interval(this.generateInterval());
-    //TODO: take until mutators change, then resub?
-    generator.subscribe(_ => {
-      this.resources.gainBorgor((1 + this.owned()) * this.multiplier())
-    });
+    // if (this._autoCollectEnabled()) {
+    //   return;
+    // }
+    // this._autoCollectEnabled.set(true);
+    // const generator = interval(this.generateInterval());
+    // //TODO: take until mutators change, then resub?
+    // generator.subscribe(_ => {
+    //   this.resources.gainResources((1 + this.owned()) * this.multiplier())
+    // });
   }
 
   //TODO: eventually purchase x amount
@@ -45,10 +45,10 @@ export class AutoGenerator extends BaseGenerator {
   }
 
   private readonly _cost = computed(() => {
-    return (this.initialCost() + this.owned()) * this.multiplier();
+    // return (this.initialCost() + this.owned()) * this.multiplier();
   });
 
-  get cost(): Signal<number> {
-    return this._cost;
-  }
+  // get cost(): Signal<number> {
+  //   return this._cost;
+  // }
 }
