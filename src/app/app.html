@@ -2,7 +2,7 @@
   <h1>borgors</h1>
 <!--  <h2>{{ resources.borgors() }}</h2>-->
   @for (resource of resourceList; track resource.id) {
-    <app-base-generator
+    <app-base-generator [recipe]="resource.recipe"
       [name]="resource.id"/>
   }
 </div>

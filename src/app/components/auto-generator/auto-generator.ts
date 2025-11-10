@@ -13,7 +13,6 @@ export class AutoGenerator extends BaseGenerator {
   generateInterval = input.required<number>();
   multiplier = input.required<number>();
   //TODO: These are probably inputs inside a component.
-  private readonly _owned = signal<number>(0);
   private readonly _autoCollectEnabled = signal<boolean>(false);
 
   enableAutoCollect(): void {
@@ -29,20 +28,20 @@ export class AutoGenerator extends BaseGenerator {
   }
 
   //TODO: eventually purchase x amount
-  buyGenerator(): void {
-    this.owned = 1;
-    //TODO: this is bad and wrong. make it better.
-    // it should only call a method if it isnt already active
-    this.enableAutoCollect();
-  }
+  // buyGenerator(): void {
+  //   this.owned = 1;
+  //   //TODO: this is bad and wrong. make it better.
+  //   // it should only call a method if it isnt already active
+  //   this.enableAutoCollect();
+  // }
 
-  get owned(): Signal<number> {
-    return this._owned.asReadonly();
-  }
-
-  set owned(quantity: number) {
-    this._owned.update(q => q + quantity);
-  }
+  // get owned(): Signal<number> {
+  //   return this._owned.asReadonly();
+  // }
+  //
+  // set owned(quantity: number) {
+  //   this._owned.update(q => q + quantity);
+  // }
 
   private readonly _cost = computed(() => {
     // return (this.initialCost() + this.owned()) * this.multiplier();
