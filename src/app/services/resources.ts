@@ -1,14 +1,40 @@
 import { Injectable, signal } from '@angular/core';
+import { defaultInventory } from './default-values';
+import { ResourceType } from './resource/resource-type';
+import { Recipe } from './resource/recipe';
 
 @Injectable({ providedIn: 'root' })
 export class Resources {
-  private readonly _borgors = signal(0);
+  private readonly _inventory = signal(defaultInventory);
 
-  gainBorgor(amount: number) {
-    this._borgors.update(c => c + amount);
+
+  gainResources(type: ResourceType, amount: number, recipe: Recipe | null = null): void {
+    this._inventory.update((cv) => {
+      const updated: Recipe = {} as Recipe;
+
+      for (const key in cv) {
+        const k = key as ResourceType;
+        updated[k] = cv[k] + amount * (k === type ? 1 : 0) - (recipe?.[k] ?? 0);
+      }
+
+      return updated;
+    });
   }
 
-  get borgors() {
-    return this._borgors.asReadonly();
+
+  getResourceQuantity(type: ResourceType) {
+    return this._inventory()[type];
+  }
+
+  canMakeResource(recipe: Recipe): boolean {
+    let canMakeResource = true;
+    Object.entries(recipe).forEach(([resource, requiredQuantity]) => {
+      const rst = <ResourceType>resource;
+      if (requiredQuantity > this.getResourceQuantity(rst)) {
+        canMakeResource = false;
+        return;
+      }
+    })
+    return canMakeResource;
   }
 }

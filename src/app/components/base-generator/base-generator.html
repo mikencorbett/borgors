@@ -1,0 +1,6 @@
+<button
+  class="button-primary"
+  [disabled]="!canMakeResource()"
+  (click)="makeResource()">
+  make {{ name() }} {{ owned() }} {{ canMakeResource() }}
+</button>
