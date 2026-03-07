@@ -1,7 +1,8 @@
-import {Component, computed, inject, input, Signal, signal} from '@angular/core';
-import {Resources} from '../../services/resources';
+import { Component, computed, inject, input, Signal, signal } from '@angular/core';
+import { Resources } from '../../services/resources';
 import { interval } from 'rxjs';
 import { BaseGenerator } from '../base-generator/base-generator';
+import { AutoGeneratorConfig } from '@components/auto-generator/config';
 
 @Component({
   selector: 'app-auto-generator',
@@ -10,10 +11,10 @@ import { BaseGenerator } from '../base-generator/base-generator';
   styleUrl: './auto-generator.scss'
 })
 export class AutoGenerator extends BaseGenerator {
+  config = input.required<AutoGeneratorConfig>();
   generateInterval = input.required<number>();
   multiplier = input.required<number>();
   //TODO: These are probably inputs inside a component.
-  private readonly _autoCollectEnabled = signal<boolean>(false);
 
   enableAutoCollect(): void {
     // if (this._autoCollectEnabled()) {
@@ -47,6 +48,10 @@ export class AutoGenerator extends BaseGenerator {
     // return (this.initialCost() + this.owned()) * this.multiplier();
   });
 
+  //TODO: when fan is available allow assigning and generation of resource
+  assignFan(): void {
+
+  }
   // get cost(): Signal<number> {
   //   return this._cost;
   // }

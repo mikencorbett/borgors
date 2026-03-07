@@ -1,7 +1,7 @@
 import { Component, computed, inject, input } from '@angular/core';
-import { Recipe } from '../../services/resource/recipe';
-import { Resources } from '../../services/resources';
-import { ResourceType } from '../../services/resource/resource-type';
+import { Recipe } from '@services/resource/recipe';
+import { Resources } from '@services/resources';
+import { ResourceType } from '@services/resource/resource-type';
 
 @Component({
   selector: 'app-base-generator',
