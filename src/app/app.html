@@ -1,8 +1,10 @@
 <div class="container">
   <h1>borgors</h1>
 <!--  <h2>{{ resources.borgors() }}</h2>-->
-  @for (resource of resourceList; track resource.id) {
-    <app-base-generator [recipe]="resource.recipe"
-      [name]="resource.id"/>
-  }
+  <div class="base-resources">
+    @for (resource of resourceList; track resource.id) {
+      <app-base-generator [recipe]="resource.recipe"
+                          [name]="resource.id"/>
+    }
+  </div>
 </div>

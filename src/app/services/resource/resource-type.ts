@@ -3,4 +3,5 @@ export enum ResourceType {
   Lebbuce = 'Lebbuce',
   Bonz = 'Bonz',
   Flesh = 'Flesh',
+  Fan = 'Fan'
 }

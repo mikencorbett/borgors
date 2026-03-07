@@ -1,21 +1,12 @@
-import { Component, inject } from '@angular/core';
-import { Resources } from './services/resources';
-import { BaseGenerator } from './components/base-generator/base-generator';
-import { ResourceType } from './services/resource/resource-type';
-import { resourceList } from './services/default-values';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    BaseGenerator
-  ],
-  templateUrl: './app.html',
+  imports: [RouterOutlet],
+  template: '<router-outlet/>',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly resources = inject(Resources);
-  readonly resourceList = resourceList;
-  makeResource(type: ResourceType, amount: number): void {
-    this.resources.gainResources(type, amount);
-  }
+
 }

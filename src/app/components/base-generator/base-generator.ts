@@ -28,14 +28,4 @@ export class BaseGenerator {
   makeResource(): void {
     this.resources.gainResources(this.name(), 1, this.recipe());
   }
-
-  //TODO: check to make sure resources are available
-  // canMakeResource(): boolean {
-  //   const recipe = this.recipe();
-  //   if (!recipe) {
-  //     return true;
-  //   } else {
-  //     return this.resources.canMakeResource(recipe);
-  //   }
-  // }
 }

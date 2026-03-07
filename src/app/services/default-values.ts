@@ -6,6 +6,7 @@ export const defaultInventory = {
   [ResourceType.Lebbuce]: 0,
   [ResourceType.Bonz]: 0,
   [ResourceType.Flesh]: 0,
+  [ResourceType.Fan]: 0
 }
 
 export const resourceList: Resource[] = [
@@ -29,7 +30,19 @@ export const resourceList: Resource[] = [
       [ResourceType.Bonz]: 2,
       [ResourceType.Flesh]: 1,
       //Need to exclude this somehow. or not?
-      [ResourceType.Borgor]: 0
+      [ResourceType.Borgor]: 0,
+      [ResourceType.Fan]: 0
+    }
+  },
+  {
+    id: ResourceType.Fan,
+    interval: 1000,
+    recipe: {
+      [ResourceType.Lebbuce]: 0,
+      [ResourceType.Bonz]: 0,
+      [ResourceType.Flesh]: 0,
+      [ResourceType.Borgor]: 1,
+      [ResourceType.Fan]: 0
     }
   }
 ]
