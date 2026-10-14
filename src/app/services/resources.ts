@@ -10,7 +10,13 @@ export class Resources {
 
   gainResources(type: ResourceType, amount: number, recipe: Recipe | null = null): void {
     this._inventory.update((cv) => {
-      const updated: Recipe = {} as Recipe;
+      const updated: Recipe = {
+        [ResourceType.Borgor]: 0,
+        [ResourceType.Lebbuce]: 0,
+        [ResourceType.Bonz]: 0,
+        [ResourceType.Flesh]: 0,
+        [ResourceType.Fan]: 0
+      };
 
       for (const key in cv) {
         const k = key as ResourceType;
