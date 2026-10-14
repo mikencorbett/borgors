@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Signal, signal } from '@angular/core';
+import { Component, computed, inject, input, Signal, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Resources } from '../../services/resources';
 import { interval } from 'rxjs';
 import { BaseGenerator } from '../base-generator/base-generator';
@@ -8,6 +8,7 @@ import { AutoGeneratorConfig } from '@components/auto-generator/config';
   selector: 'app-auto-generator',
   imports: [],
   templateUrl: './auto-generator.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './auto-generator.scss'
 })
 export class AutoGenerator extends BaseGenerator {

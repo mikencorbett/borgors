@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, ChangeDetectionStrategy } from '@angular/core';
 import { Recipe } from '@services/resource/recipe';
 import { Resources } from '@services/resources';
 import { ResourceType } from '@services/resource/resource-type';
@@ -7,6 +7,7 @@ import { ResourceType } from '@services/resource/resource-type';
   selector: 'app-base-generator',
   imports: [],
   templateUrl: './base-generator.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './base-generator.scss'
 })
 export class BaseGenerator {
